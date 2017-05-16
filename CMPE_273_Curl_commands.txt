@@ -1,0 +1,93 @@
+
+I. Pizza Menu CRUD APIs
+
+1. POST /menu
+
+curl -H "Content-Type: application/json" -X POST -d '{
+    "menu_id": "42088",
+    "store_name": "Pizza Hut",
+    "selection": [
+        "Cheese",
+        "Pepperoni"
+    ],
+    "size": [
+        "Slide", "Small", "Medium", "Large", "X-Large"
+    ],
+    "price": [
+        "3.50", "7.00", "10.00", "15.00", "20.00"
+    ],
+    "store_hours": {
+        "Mon": "10am-10pm",
+        "Tue": "10am-10pm",
+        "Wed": "10am-10pm",
+        "Thu": "10am-10pm",
+        "Fri": "10am-10pm",
+        "Sat": "11am-12pm",
+        "Sun": "11am-12pm"
+    }
+}' https://quw7tmihqh.execute-api.us-west-2.amazonaws.com/pizzashop/menu
+
+2. DELETE /menu/{menu_id}
+
+curl -XDELETE 'https://quw7tmihqh.execute-api.us-west-2.amazonaws.com/pizzashop/menu/1008'
+
+3. GET /menu/{menu_id}
+
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" https://quw7tmihqh.execute-api.us-west-2.amazonaws.com/pizzashop/menu/1108
+
+4. PUT /menu/{menu-id}
+
+curl -X PUT -H "Content-Type: application/json" -d '{
+    "menu_id": "10008",
+    "selection": [ 
+        "Cheese",
+        "Pepperoni",
+        "Vegetable"
+    ]   
+}' "https://quw7tmihqh.execute-api.us-west-2.amazonaws.com/pizzashop/menu/1001"
+
+II. Pizza Order Processing APIs
+
+1. POST /order
+
+curl -H "Content-Type: application/json" -X POST -d '{   
+    "menu_id": "1108",
+    "order_id": "108",
+    "customer_name": "Joseph Smith",
+    "customer_email": "foobar@gmail.com"
+}' https://quw7tmihqh.execute-api.us-west-2.amazonaws.com/pizzashop/order
+
+2. PUT /order/{order_id}
+
+curl -X PUT -H "Content-Type: application/json" -d '{   
+    "input": "1",
+}' "https://quw7tmihqh.execute-api.us-west-2.amazonaws.com/pizzashop/order/101"
+
+3. PUT /order/{order_id}
+
+curl -X PUT -H "Content-Type: application/json" -d '{   
+    "input": "1",
+}' "https://quw7tmihqh.execute-api.us-west-2.amazonaws.com/pizzashop/order/101"
+
+4. GET /order/{order-id}
+
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" https://quw7tmihqh.execute-api.us-west-2.amazonaws.com/pizzashop/order/101
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
